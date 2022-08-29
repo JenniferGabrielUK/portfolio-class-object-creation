@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+class Player {
+    //attributes such as data
+private:
+    std::string name;
+    double health;
+    double xp;
+    //methods ie functions and operations
+public:
+    Player() : name{ "unknown" }, health{ 1.0 }, xp{ 1.0 } {std::cout << "No-arguements constructor, default values." << std::endl; }
+    Player(std::string n) : name{ n }, health{ 1.0 }, xp{ 1.0 } {std::cout << "Single arguement constructor called." << std::endl; }
+    ~Player() { std::cout << "Destrcutor called." << std::endl; }
+    void talk(std::string);
+    bool is_dead();
+};
+
+class Account {
+private:
+    std::string name{};
+    double balance;
+public:
+    Account() : name{ "unknown" }, balance{ 0.0 } {}
+    Account(std::string n, double i) : name{n}, balance{i} {}
+    bool deposit(double);
+    bool withdraw(double);
+};
+
+int main()
+{
+    std::cout << "Hello World!\n";
+    Account jenny_account;
+    Account elizabeth_account{"elizabeth", 101.01};
+    Player jenny;
+    Player elizabeth{"Elizabeth"};
+    Player players[]{ jenny, elizabeth };
+    std::vector<Player> player_vec{ jenny };
+    player_vec.push_back(elizabeth);
+    Player* enemy{ nullptr };
+    enemy = new Player;
+    delete enemy;
+
+    return 0;
+}
